@@ -494,9 +494,12 @@
       
         
           
-          Matching Networks for One Shot Learning
-
-          
+          Matching Networks for One Shot Learning论文解读
+前景以及目的网络结构
+公式解读$$ P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i$$
+$$ a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))} $$
+$$ \hat{h}_k, c_k\ =\  LSTM(f’(\hat{x})
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/04/25/Matching-Networks-for-One-Shot-Learning论文解读/#more" rel="contents">
