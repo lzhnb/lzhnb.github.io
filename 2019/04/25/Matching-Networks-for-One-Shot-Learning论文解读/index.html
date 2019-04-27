@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Matching Networks for One Shot Learning论文解读 前景以及目的网络结构 公式解读$$ P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i$$ $$ a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g">
+<meta name="description" content="Matching Networks for One Shot Learning论文解读 前景以及目的网络结构 公式解读P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_ia(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))}\h">
 <meta name="keywords" content="小样本学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
 <meta property="og:url" content="http://yoursite.com/2019/04/25/Matching-Networks-for-One-Shot-Learning论文解读/index.html">
 <meta property="og:site_name" content="氵景页の博客">
-<meta property="og:description" content="Matching Networks for One Shot Learning论文解读 前景以及目的网络结构 公式解读$$ P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i$$ $$ a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g">
+<meta property="og:description" content="Matching Networks for One Shot Learning论文解读 前景以及目的网络结构 公式解读P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_ia(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))}\h">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
 <meta property="og:updated_time" content="2019-04-27T10:30:13.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
-<meta name="twitter:description" content="Matching Networks for One Shot Learning论文解读 前景以及目的网络结构 公式解读$$ P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i$$ $$ a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g">
+<meta name="twitter:description" content="Matching Networks for One Shot Learning论文解读 前景以及目的网络结构 公式解读P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_ia(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))}\h">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
 
 
@@ -346,11 +346,7 @@
       
         <h1 id="Matching-Networks-for-One-Shot-Learning论文解读"><a href="#Matching-Networks-for-One-Shot-Learning论文解读" class="headerlink" title="Matching Networks for One Shot Learning论文解读"></a>Matching Networks for One Shot Learning论文解读</h1><hr>
 <h2 id="前景以及目的"><a href="#前景以及目的" class="headerlink" title="前景以及目的"></a>前景以及目的</h2><h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg" alt="avatar"></p>
-<h2 id="公式解读"><a href="#公式解读" class="headerlink" title="公式解读"></a>公式解读</h2><p>$$ P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i$$</p>
-<p>$$ a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))} $$</p>
-<p>$$ \hat{h}_k, c_k\ =\  LSTM(f’(\hat{x}),[h_{k-1}, r_{k-1}],c_{k-1})$$<br>$$ h_k\  =\ \hat{h}<em>k +f’(\hat{x}) $$<br>$$ r</em>{k-1}\ = \ \sum_{i=1}^{|S|}a(h_{k-1},g(x_i))g(x_i) $$<br>$$ a(h_{k-1}, g(x_i))\ =\ e^{h^{T_{k-1}}g(x_i)}/\sum_{j=1}^{|s|}e^{h^{t}_{k-1}g(x_j)} $$</p>
-<p>$$  $$</p>
-
+<h2 id="公式解读"><a href="#公式解读" class="headerlink" title="公式解读"></a>公式解读</h2><script type="math/tex; mode=display">P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i</script><script type="math/tex; mode=display">a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))}</script><script type="math/tex; mode=display">\hat{h}_k, c_k\ =\  LSTM(f'(\hat{x}),[h_{k-1}, r_{k-1}],c_{k-1})</script><script type="math/tex; mode=display">h_k\  =\ \hat{h}_k +f'(\hat{x})</script><script type="math/tex; mode=display">r_{k-1}\ = \ \sum_{i=1}^{|S|}a(h_{k-1},g(x_i))g(x_i)</script><script type="math/tex; mode=display">a(h_{k-1}, g(x_i))\ =\ e^{h^{T_{k-1}}g(x_i)}/\sum_{j=1}^{|s|}e^{h^{t}_{k-1}g(x_j)}</script><script type="math/tex; mode=display"> </script>
       
     </div>
     
@@ -775,7 +771,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src>
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
