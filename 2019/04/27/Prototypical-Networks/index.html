@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="小样本学习, Matching-Network,">
+  <meta name="keywords" content="小样本学习, Prototypical-Network,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。但是随着网络结构">
-<meta name="keywords" content="小样本学习, Matching-Network">
+<meta name="description" content="Prototypical Network论文解读 前景以及目的网络结构 图示：">
+<meta name="keywords" content="小样本学习, Prototypical-Network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
-<meta property="og:url" content="http://yoursite.com/2019/04/25/Matching-Networks-for-One-Shot-Learning论文解读/index.html">
+<meta property="og:title" content="Prototypical_Networks_for_Few-shot_Learning论文解读">
+<meta property="og:url" content="http://yoursite.com/2019/04/27/Prototypical-Networks/index.html">
 <meta property="og:site_name" content="氵景页の博客">
-<meta property="og:description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。但是随着网络结构">
+<meta property="og:description" content="Prototypical Network论文解读 前景以及目的网络结构 图示：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
-<meta property="og:updated_time" content="2019-04-28T07:50:48.963Z">
+<meta property="og:updated_time" content="2019-04-27T15:18:59.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
-<meta name="twitter:description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。但是随着网络结构">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
+<meta name="twitter:title" content="Prototypical_Networks_for_Few-shot_Learning论文解读">
+<meta name="twitter:description" content="Prototypical Network论文解读 前景以及目的网络结构 图示：">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/25/Matching-Networks-for-One-Shot-Learning论文解读/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/27/Prototypical-Networks/">
 
 
 
 
 
-  <title>Matching_Networks_for_One_Shot_Learning论文解读 | 氵景页の博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Prototypical_Networks_for_Few-shot_Learning论文解读 | 氵景页の博客</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -255,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/25/Matching-Networks-for-One-Shot-Learning论文解读/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/27/Prototypical-Networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="氵景页">
@@ -272,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Matching_Networks_for_One_Shot_Learning论文解读</h1>
+          <h1 class="post-title" itemprop="name headline">Prototypical_Networks_for_Few-shot_Learning论文解读</h1>
         
 
         <div class="post-meta">
@@ -284,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-25T23:12:09+08:00">
-                2019-04-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T23:01:37+08:00">
+                2019-04-27
               </time>
             
 
@@ -344,13 +342,11 @@
       
 
       
-        <h2 id="Matching-Networks-for-One-Shot-Learning论文解读"><a href="#Matching-Networks-for-One-Shot-Learning论文解读" class="headerlink" title="Matching Networks for One Shot Learning论文解读"></a>Matching Networks for One Shot Learning论文解读</h2><h1 id="小样本学习"><a href="#小样本学习" class="headerlink" title="小样本学习"></a>小样本学习</h1><h2 id="深度学习所遇到问题"><a href="#深度学习所遇到问题" class="headerlink" title="深度学习所遇到问题"></a>深度学习所遇到问题</h2><p>在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。<br>如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。<br>但是随着网络结构的逐渐加深，哪怕是有相当好的网络训练技巧也很难避免过拟合的出现，或者说解决数据集过小的问题。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>神经网络初衷便是模拟人脑的结构，模拟神经元之间信息传递的方式而搭建的数学模型。<br>以一个人的学习经验来看，在积累了一定程度的先验知识后，对于新的事物仅需要个例便可以马上接受该事务，识别出该事物。<br>例如：一个在上小学的小孩子在学校里经过老师的介绍仅从图片上亦或是文字描述了解了长颈鹿，但一去动物园他就能马上认出长颈鹿；但是，这对于一个刚出生的婴儿来说基本是远远不能做到的。<br>从以上的例子，相关的从业人员便提出了<strong>小样本学习(Few-shot Learning)</strong>的概念</p>
-<h1 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h1><blockquote>
-<h2 id="图示："><a href="#图示：" class="headerlink" title="图示："></a>图示：</h2><p><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg" alt="avatar"></p>
-<h2 id="解读："><a href="#解读：" class="headerlink" title="解读："></a>解读：</h2><p>从</p>
+        <h1 id="Prototypical-Network论文解读"><a href="#Prototypical-Network论文解读" class="headerlink" title="Prototypical Network论文解读"></a>Prototypical Network论文解读</h1><hr>
+<h2 id="前景以及目的"><a href="#前景以及目的" class="headerlink" title="前景以及目的"></a>前景以及目的</h2><h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><blockquote>
+<h3 id="图示："><a href="#图示：" class="headerlink" title="图示："></a>图示：</h3><p><img src alt="avatar"></p>
 </blockquote>
-<h1 id="公式解读"><a href="#公式解读" class="headerlink" title="公式解读"></a>公式解读</h1><script type="math/tex; mode=display">P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i</script><script type="math/tex; mode=display">a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))}</script><script type="math/tex; mode=display">\hat{h}_k, c_k\ =\  LSTM(f'(\hat{x}),[h_{k-1}, r_{k-1}],c_{k-1})</script><script type="math/tex; mode=display">h_k\  =\ \hat{h}_k +f'(\hat{x})</script><script type="math/tex; mode=display">r_{k-1}\ = \ \sum_{i=1}^{|S|}a(h_{k-1},g(x_i))g(x_i)</script><script type="math/tex; mode=display">a(h_{k-1}, g(x_i))\ =\ e^{h^{T_{k-1}}g(x_i)}/\sum_{j=1}^{|s|}e^{h^{t}_{k-1}g(x_j)}</script><script type="math/tex; mode=display"> </script>
+
       
     </div>
     
@@ -367,7 +363,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/小样本学习-Matching-Network/" rel="tag"># 小样本学习, Matching-Network</a>
+            <a href="/tags/小样本学习-Prototypical-Network/" rel="tag"># 小样本学习, Prototypical-Network</a>
           
         </div>
       
@@ -380,8 +376,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/25/查看空闲gpu并运行程序/" rel="next" title="查看空闲gpu并运行程序">
-                <i class="fa fa-chevron-left"></i> 查看空闲gpu并运行程序
+              <a href="/2019/04/25/Few-Shot-Semantic-Segmentation-with-Prototype-Learning论文解读/" rel="next" title="Few-Shot-Semantic-Segmentation-with-Prototype-Learning论文解读">
+                <i class="fa fa-chevron-left"></i> Few-Shot-Semantic-Segmentation-with-Prototype-Learning论文解读
               </a>
             
           </div>
@@ -389,10 +385,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/25/Few-Shot-Semantic-Segmentation-with-Prototype-Learning论文解读/" rel="prev" title="Few-Shot-Semantic-Segmentation-with-Prototype-Learning论文解读">
-                Few-Shot-Semantic-Segmentation-with-Prototype-Learning论文解读 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Matching-Networks-for-One-Shot-Learning论文解读"><span class="nav-number">1.</span> <span class="nav-text">Matching Networks for One Shot Learning论文解读</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#小样本学习"><span class="nav-number"></span> <span class="nav-text">小样本学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习所遇到问题"><span class="nav-number">1.</span> <span class="nav-text">深度学习所遇到问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络结构"><span class="nav-number"></span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图示："><span class="nav-number">1.</span> <span class="nav-text">图示：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解读："><span class="nav-number">2.</span> <span class="nav-text">解读：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式解读"><span class="nav-number"></span> <span class="nav-text">公式解读</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prototypical-Network论文解读"><span class="nav-number">1.</span> <span class="nav-text">Prototypical Network论文解读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前景以及目的"><span class="nav-number">1.1.</span> <span class="nav-text">前景以及目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">1.2.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图示："><span class="nav-number">1.2.1.</span> <span class="nav-text">图示：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
