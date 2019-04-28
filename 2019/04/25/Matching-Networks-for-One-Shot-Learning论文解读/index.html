@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="小样本学习, Matching-Network,">
+  <meta name="keywords" content="小样本学习 Matching-Network,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="Matching Networks for One Shot Learning论文解读（施工中）小样本学习(Few-shot Learning)深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来">
-<meta name="keywords" content="小样本学习, Matching-Network">
+<meta name="keywords" content="小样本学习 Matching-Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
 <meta property="og:url" content="http://yoursite.com/2019/04/25/Matching-Networks-for-One-Shot-Learning论文解读/index.html">
@@ -88,7 +88,7 @@
 <meta property="og:description" content="Matching Networks for One Shot Learning论文解读（施工中）小样本学习(Few-shot Learning)深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
-<meta property="og:updated_time" content="2019-04-28T08:55:00.755Z">
+<meta property="og:updated_time" content="2019-04-28T12:51:45.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
 <meta name="twitter:description" content="Matching Networks for One Shot Learning论文解读（施工中）小样本学习(Few-shot Learning)深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来">
@@ -346,7 +346,7 @@
       
         <h2 id="Matching-Networks-for-One-Shot-Learning论文解读（施工中）"><a href="#Matching-Networks-for-One-Shot-Learning论文解读（施工中）" class="headerlink" title="Matching Networks for One Shot Learning论文解读（施工中）"></a>Matching Networks for One Shot Learning论文解读（施工中）</h2><h1 id="小样本学习-Few-shot-Learning"><a href="#小样本学习-Few-shot-Learning" class="headerlink" title="小样本学习(Few-shot Learning)"></a>小样本学习(Few-shot Learning)</h1><h2 id="深度学习所遇到问题"><a href="#深度学习所遇到问题" class="headerlink" title="深度学习所遇到问题"></a>深度学习所遇到问题</h2><p>在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。<br>如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。<br>但是随着网络结构的逐渐加深，哪怕是有相当好的网络训练技巧也很难避免过拟合的出现，或者说解决数据集过小的问题。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>神经网络初衷便是模拟人脑的结构，模拟神经元之间信息传递的方式而搭建的数学模型。<br>以一个人的学习经验来看，并不是一个强监督的过程，在积累了一定程度的先验知识后，对于新的事物仅需要个例便可以马上接受该事务，识别出该事物。<br>例如：一个在上小学的小孩子在学校里经过老师的介绍仅从图片上亦或是文字描述了解了长颈鹿，但一去动物园他就能马上认出长颈鹿；但是，这对于一个刚出生的婴儿来说基本是远远不能做到的。<br>从以上的例子，相关的从业人员便提出了<strong>小样本学习(Few-shot Learning)</strong>的概念。</p>
-<h3 id="小样本学习简介"><a href="#小样本学习简介" class="headerlink" title="小样本学习简介"></a>小样本学习简介</h3><p>小样本学习并不是字面上利用已有的少量数据集通过传统的fine-tuning，只要接触过深度学习的都知道无论在预处理或是网络加入了何种结构或是方法，仅有不超过白张十张的数据集进行fine-tuning时，毫无疑问会出现严重的过拟合。<br>所以小样本学习实际上是搭建一个网络能够接受多个输入，在训练过程中依旧是需要大数据量进行训练，但是在测试或是实际使用过程中，我们提供一个<strong>support_set</strong>，然后输入<strong>query_input</strong>，来输出我们依据support_set输出query_input相应的结果。<br>就如我们训练一个分类网络识别长颈鹿，过往的方法便是我们收集大量的长颈鹿的图片作为训练集来训练这个分类网络，在测试过程中就利用长颈鹿以及非长颈鹿的图片来测试该网络的性能。<br>若用小样本学习的方法便是，我们训练好一个网络，然后进行测试，在测试过程中：<br><em>首先我们将确定是长颈鹿的图片作为该网络的一个输入-support_set，而后我们将测试的图片作为该网络的另一个输入-query_input，最后该网络输出的便是关于这个query_input是不是长颈鹿的分类结果，其中作为输入的support_set可以接受不同数量的输入，便是<strong>k-shot</strong>的直观解释（单输入便是one-shot）这就是小样本学习的比较直观的概念</em><br><strong><em>要注意的是，在上面这个过程中，在训练的时候长颈鹿是不能作为训练集参与训练的！仅在测试集中进行测试使用，所以小样本学习的目标不参与该网络的训练</em></strong>，这也表现了小样本学习的一个较强的泛化能力以及普适性，不过很显然准确性是小样本学习遇到的相当大地问题。<br>所以我们能总结出小样本学习的一下特征点：  </p>
+<h3 id="小样本学习简介"><a href="#小样本学习简介" class="headerlink" title="小样本学习简介"></a>小样本学习简介</h3><p>小样本学习并不是字面上利用已有的少量数据集通过传统的fine-tuning，只要接触过深度学习的都知道无论在预处理或是网络加入了何种结构或是方法，仅有不超过白张十张的数据集进行fine-tuning时，毫无疑问会出现严重的过拟合。<br>所以小样本学习实际上是搭建一个网络能够接受多个输入，在训练过程中依旧是需要大数据量进行训练，但是在测试或是实际使用过程中，我们提供一个输入样本-<strong>support_set</strong>，以及代处理输入-<strong>query_input</strong>，来输出我们依据support_set输出query_input相应的结果。<br>就如我们训练一个分类网络识别长颈鹿，过往的方法便是我们收集大量的长颈鹿的图片作为训练集来训练这个分类网络，在测试过程中就利用长颈鹿以及非长颈鹿的图片来测试该网络的性能。<br>若用小样本学习的方法便是，我们训练好一个网络，然后进行测试，在测试过程中：<br><em>首先我们将确定是长颈鹿的图片作为该网络的一个输入-support_set，而后我们将测试的图片作为该网络的另一个输入-query_input，最后该网络输出的便是关于这个query_input是不是长颈鹿的分类结果，其中作为输入的support_set可以接受不同数量的输入，便是<strong>k-shot</strong>的直观解释（单输入便是one-shot）这就是小样本学习的比较直观的概念</em><br><strong><em>要注意的是，在上面这个过程中，在训练的时候长颈鹿是不能作为训练集参与训练的！仅在测试集中进行测试使用，所以小样本学习的目标不参与该网络的训练</em></strong>，这也表现了小样本学习的一个较强的泛化能力以及普适性，不过很显然准确性是小样本学习遇到的相当大地问题。<br>所以我们能总结出小样本学习的一下特征点：  </p>
 <ol>
 <li>能够接受多输入，但输入总体就分为提供相关任务信息的<strong>Support_set</strong>以及代处理的<strong>query_input</strong></li>
 <li>测试集（的种类）不应该出现在训练集（的种类）中</li>
@@ -354,7 +354,7 @@
 <h1 id="Matching-Network介绍"><a href="#Matching-Network介绍" class="headerlink" title="Matching Network介绍"></a>Matching Network介绍</h1><h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>针对上面所说的小样本学习的相关概念，google DeepMind实验室在2016年发表了这篇文章<a href="https://arxiv.org/abs/1606.04080" target="_blank" rel="noopener">Matching Networks for One Shot Learning</a>，这篇文章针对小样本分类问题提出了一个非常直观且有效的网络框架，并且提供了相应的训练策略和损失函数的选取。</p>
 <h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><blockquote>
 <h3 id="图示："><a href="#图示：" class="headerlink" title="图示："></a>图示：</h3><p><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg" alt="avatar"></p>
-<h3 id="解读："><a href="#解读：" class="headerlink" title="解读："></a>解读：</h3><p>结合上图以及原文信息来看，首先是针对输入Support_set-<strong>S</strong>有一个映射函数或者是分类器-<strong>$c_S$</strong>，在图中所示便是$g_{\Theta}$</p>
+<h3 id="解读："><a href="#解读：" class="headerlink" title="解读："></a>解读：</h3><p>结合上图以及原文信息来看，首先是输入Support_set-<strong>$S$</strong>，$S=\lbrace (x_i, y_i) \rbrace_{i=1}^{k}$，其中$k$表示总个数，并不指类别数或者是单个类别的输入样本数。$x_i$指的是输入样本 $y_i$指的是对应输入样本的<strong>label</strong>，紧接在我们输入query_input-<strong>$\hat{x}$</strong> $$<br>有一个映射函数或者是分类器-<strong>$c_S$</strong>，在图中所示便是$g_{\Theta}$</p>
 </blockquote>
 <h1 id="公式解读"><a href="#公式解读" class="headerlink" title="公式解读"></a>公式解读</h1><script type="math/tex; mode=display">P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i</script><script type="math/tex; mode=display">a(\hat{x}, x_i)\ =\ e^{c(f(\hat{x}),g(x_i))}/\sum_{j=1}^{k}e^{c(f(\hat{x}),g(x_j))}</script><script type="math/tex; mode=display">\hat{h}_k, c_k\ =\  LSTM(f'(\hat{x}),[h_{k-1}, r_{k-1}],c_{k-1})</script><script type="math/tex; mode=display">h_k\  =\ \hat{h}_k +f'(\hat{x})</script><script type="math/tex; mode=display">r_{k-1}\ = \ \sum_{i=1}^{|S|}a(h_{k-1},g(x_i))g(x_i)</script><script type="math/tex; mode=display">a(h_{k-1}, g(x_i))\ =\ e^{h^{T_{k-1}}g(x_i)}/\sum_{j=1}^{|s|}e^{h^{t}_{k-1}g(x_j)}</script><script type="math/tex; mode=display">\theta\ =\</script>
       
@@ -373,7 +373,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/小样本学习-Matching-Network/" rel="tag"># 小样本学习, Matching-Network</a>
+            <a href="/tags/小样本学习-Matching-Network/" rel="tag"># 小样本学习 Matching-Network</a>
           
         </div>
       
@@ -477,7 +477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -488,7 +488,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -499,7 +499,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
