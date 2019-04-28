@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。但是随着网络结构">
+<meta name="description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题  在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。  如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。  但是">
 <meta name="keywords" content="小样本学习, Matching-Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
 <meta property="og:url" content="http://yoursite.com/2019/04/25/Matching-Networks-for-One-Shot-Learning论文解读/index.html">
 <meta property="og:site_name" content="氵景页の博客">
-<meta property="og:description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。但是随着网络结构">
+<meta property="og:description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题  在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。  如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。  但是">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
-<meta property="og:updated_time" content="2019-04-28T07:50:48.963Z">
+<meta property="og:updated_time" content="2019-04-28T07:54:41.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matching_Networks_for_One_Shot_Learning论文解读">
-<meta name="twitter:description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。但是随着网络结构">
+<meta name="twitter:description" content="Matching Networks for One Shot Learning论文解读小样本学习深度学习所遇到问题  在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。  如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。  但是">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
 
 
@@ -344,8 +344,8 @@
       
 
       
-        <h2 id="Matching-Networks-for-One-Shot-Learning论文解读"><a href="#Matching-Networks-for-One-Shot-Learning论文解读" class="headerlink" title="Matching Networks for One Shot Learning论文解读"></a>Matching Networks for One Shot Learning论文解读</h2><h1 id="小样本学习"><a href="#小样本学习" class="headerlink" title="小样本学习"></a>小样本学习</h1><h2 id="深度学习所遇到问题"><a href="#深度学习所遇到问题" class="headerlink" title="深度学习所遇到问题"></a>深度学习所遇到问题</h2><p>在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。<br>如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。<br>但是随着网络结构的逐渐加深，哪怕是有相当好的网络训练技巧也很难避免过拟合的出现，或者说解决数据集过小的问题。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>神经网络初衷便是模拟人脑的结构，模拟神经元之间信息传递的方式而搭建的数学模型。<br>以一个人的学习经验来看，在积累了一定程度的先验知识后，对于新的事物仅需要个例便可以马上接受该事务，识别出该事物。<br>例如：一个在上小学的小孩子在学校里经过老师的介绍仅从图片上亦或是文字描述了解了长颈鹿，但一去动物园他就能马上认出长颈鹿；但是，这对于一个刚出生的婴儿来说基本是远远不能做到的。<br>从以上的例子，相关的从业人员便提出了<strong>小样本学习(Few-shot Learning)</strong>的概念</p>
+        <h2 id="Matching-Networks-for-One-Shot-Learning论文解读"><a href="#Matching-Networks-for-One-Shot-Learning论文解读" class="headerlink" title="Matching Networks for One Shot Learning论文解读"></a>Matching Networks for One Shot Learning论文解读</h2><h1 id="小样本学习"><a href="#小样本学习" class="headerlink" title="小样本学习"></a>小样本学习</h1><h2 id="深度学习所遇到问题"><a href="#深度学习所遇到问题" class="headerlink" title="深度学习所遇到问题"></a>深度学习所遇到问题</h2><p>  在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。<br>  如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。<br>  但是随着网络结构的逐渐加深，哪怕是有相当好的网络训练技巧也很难避免过拟合的出现，或者说解决数据集过小的问题。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>  神经网络初衷便是模拟人脑的结构，模拟神经元之间信息传递的方式而搭建的数学模型。<br>  以一个人的学习经验来看，在积累了一定程度的先验知识后，对于新的事物仅需要个例便可以马上接受该事务，识别出该事物。<br>  例如：一个在上小学的小孩子在学校里经过老师的介绍仅从图片上亦或是文字描述了解了长颈鹿，但一去动物园他就能马上认出长颈鹿；但是，这对于一个刚出生的婴儿来说基本是远远不能做到的。<br>  从以上的例子，相关的从业人员便提出了<strong>小样本学习(Few-shot Learning)</strong>的概念</p>
 <h1 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h1><blockquote>
 <h2 id="图示："><a href="#图示：" class="headerlink" title="图示："></a>图示：</h2><p><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg" alt="avatar"></p>
 <h2 id="解读："><a href="#解读：" class="headerlink" title="解读："></a>解读：</h2><p>从</p>
