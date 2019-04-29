@@ -88,7 +88,7 @@
 <meta property="og:description" content="小样本学习(Few-shot Learning)深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。   如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。   但是随着网络结构的逐渐加深，哪怕是有相当好的网络训练">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg">
-<meta property="og:updated_time" content="2019-04-29T14:28:25.565Z">
+<meta property="og:updated_time" content="2019-04-29T14:31:14.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matching_Networks_for_One_Shot_Learning论文解读（施工中国）">
 <meta name="twitter:description" content="小样本学习(Few-shot Learning)深度学习所遇到问题在如今深度学习已经发展到一定的地步了，在计算机视觉的很多领域取得了很好的效果，但是很多方法都需要针对特定任务采集大量的数据作为训练数据集才能使得网络收敛到应有的效果。   如何减少训练过程中所需的数据集，或者说高效地利用数量较少的数据集一直以来都是相关从业人员们所重视的问题。   但是随着网络结构的逐渐加深，哪怕是有相当好的网络训练">
@@ -366,11 +366,14 @@
 <h1 id="Matching-Network介绍"><a href="#Matching-Network介绍" class="headerlink" title="Matching Network介绍"></a>Matching Network介绍</h1><h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>针对上面所说的小样本学习的相关概念，google DeepMind实验室在2016年发表了这篇文章<a href="https://arxiv.org/abs/1606.04080" target="_blank" rel="noopener">Matching Networks for One Shot Learning</a>，这篇文章针对小样本分类问题提出了一个非常直观且有效的网络框架，并且提供了相应的训练策略和损失函数的选取。</p>
 <h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><blockquote>
 <h3 id="图示："><a href="#图示：" class="headerlink" title="图示："></a>图示：</h3><p><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/Matching-Network/Figure1.jpg" alt="avatar"></p>
+</blockquote>
 <h3 id="解读："><a href="#解读：" class="headerlink" title="解读："></a>解读：</h3><p>结合上图以及原文信息来看，首先是输入 Support_set - <strong>$S$</strong>，$S=\lbrace (x_i, y_i) \rbrace_{i=1}^{k}$，其中$k$表示总个数，并不指类别数或者是单个类别的输入样本数。$x_i$ 指的是输入样本， $y_i$ 指的是对应输入样本的<strong>label</strong>。紧接在我们输入query_input-<strong>$\hat{x}$</strong> ，对应的 pridiction 为 $\hat{y}$-包含了该图片对应各个类别的分类”得分”，对应过程我们可以写成：  </p>
 <script type="math/tex; mode=display">S\rightarrow{c_S(\hat{x})}</script><p>也可以写成:</p>
 <script type="math/tex; mode=display">P(\hat{y}|\hat{x},\ S)</script><p>当 Support_set 发生改变变为 $S’$ 时，对应网络的参数与结构并没有改变，对应输出的 $\hat{y}’$ (论文中并不是这种表达形式，仅为我用此做说明)则对应：$\ P(\hat{y}|\hat{x},\ S’)$  </p>
 <h4 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h4><p>那么如何计算各个类别的得分呢，对应该模型，论文给出如下关系式：</p>
-<script type="math/tex; mode=display">P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i</script><p>很多参数在上面就已经说明，这里出现了一个新的定义-$a$，原文中将其定义为该模型的一个注意力机制- <strong>attention_mechanism</strong>。<br>从上面式子我们可以看出对于 query_input-$\hat{x}$ 的”得分”-$\hat{y}$是由Support_set对应的”得分”- $y_i$线性组合而成的。<br>将该模型简化来看的话就是：<br>$x_i$ 与 $\hat{x}$ 可以看作 $X<em>1$ 的特征向量<br>$a$ 可以看作是一个Kernel尺寸为 $X</em>X$ 的核密度估计器-<strong>kernel density estimator</strong>   </p>
+<script type="math/tex; mode=display">P(\hat{y}|\hat{x},S)\ =\ \sum_{i=1}^{k}a(\hat{x},x_i)y_i</script><p>很多参数在上面就已经说明，这里出现了一个新的定义-$a$，原文中将其定义为该模型的一个注意力机制- <strong>attention_mechanism</strong>。<br>从上面式子我们可以看出对于 query_input-$\hat{x}$ 的”得分”-$\hat{y}$是由Support_set对应的”得分”- $y_i$线性组合而成的。<br>将该模型简化来看的话就是：</p>
+<blockquote>
+<p>$x_i$ 与 $\hat{x}$ 可以看作 $X<em>1$ 的特征向量<br>$a$ 可以看作是一个Kernel尺寸为 $X</em>X$ 的核密度估计器-<strong>kernel density estimator</strong>   </p>
 </blockquote>
 <p>所以这样我们就可以通过$x_i$与$\hat{x}$之间的匹配程度评估”得分”，这种工作方式类似与最近邻网络- <strong>KNN</strong>。</p>
 <p>该模型的关键便是在于对 $a$ 的定义，在论文中对$a$进行了一种比较简单且有效的定义：</p>
