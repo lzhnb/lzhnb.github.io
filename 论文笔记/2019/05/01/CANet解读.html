@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/CANet/DCM.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/CANet/IOM.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/CANet/figure3.jpg">
-<meta property="og:updated_time" content="2019-05-02T04:27:31.627Z">
+<meta property="og:updated_time" content="2019-05-06T05:20:03.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CANet论文解读">
 <meta name="twitter:description" content="CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning论文解读（施工中）关于小样本学习详情见Matching_Networks_for_One_Shot_Learning论文解读 CANet 介绍简介针对语义分割（Semantic Segementat">
@@ -353,7 +353,7 @@
       
 
       
-        <h2 id="CANet-Class-Agnostic-Segmentation-Networks-with-Iterative-Refinement-and-Attentive-Few-Shot-Learning论文解读（施工中）"><a href="#CANet-Class-Agnostic-Segmentation-Networks-with-Iterative-Refinement-and-Attentive-Few-Shot-Learning论文解读（施工中）" class="headerlink" title="CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning论文解读（施工中）"></a>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning论文解读（施工中）</h2><h1 id="关于小样本学习"><a href="#关于小样本学习" class="headerlink" title="关于小样本学习"></a>关于小样本学习</h1><p>详情见<a href="https://lzhnb.github.io/2019/04/25/Matching-Networks-for-One-Shot-Learning%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/" target="_blank" rel="noopener">Matching_Networks_for_One_Shot_Learning论文解读</a></p>
+        <h2 id="CANet-Class-Agnostic-Segmentation-Networks-with-Iterative-Refinement-and-Attentive-Few-Shot-Learning论文解读（施工中）"><a href="#CANet-Class-Agnostic-Segmentation-Networks-with-Iterative-Refinement-and-Attentive-Few-Shot-Learning论文解读（施工中）" class="headerlink" title="CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning论文解读（施工中）"></a>CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning论文解读（施工中）</h2><h1 id="关于小样本学习"><a href="#关于小样本学习" class="headerlink" title="关于小样本学习"></a>关于小样本学习</h1><p>详情见<a href="https://lzhnb.github.io/2019/04/25/Matching-Networks-for-One-Shot-Learning%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/">Matching_Networks_for_One_Shot_Learning论文解读</a></p>
 <h1 id="CANet-介绍"><a href="#CANet-介绍" class="headerlink" title="CANet 介绍"></a>CANet 介绍</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>针对语义分割（Semantic Segementation）的问题，以往传统的方法都是针对目标对象建立分割数据集用于训练，这样的方法所需要的 pixel-level 数据集的标注成本极高，且该方法仅适用于训练过的类别对象，无法用于未知（没有参与训练）类别的物体的分割任务。<br>虽然之前已经有了利用小样本学习的方法进行语义分割的先例（OSLSM），但是效果不尽人意，而且与传统方法的 state-of-art 相比任有较大差距。<br>这篇论文的核心在于提出了一种新的注意力机制（attention mechanism）能够<strong>更高效地融合 support_set 中的信息</strong>，实现更好的分割效果。<br>最终在性能指标方面，取得了在 Pascal VOC2012 数据集上利用 1-shot 实现了 mAP 为55.4%，以及利用 5-shot 实现了 mAP 为 57.1% 的好成绩</p>
 <h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><blockquote>
 <h3 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h3><p><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/CANet/figure1.jpg" alt="avatar">  </p>
@@ -417,6 +417,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/论文笔记/2019/05/06/Segmentation论文解读.html" rel="prev" title="SG-One论文解读">
+                SG-One论文解读 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -495,7 +499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
