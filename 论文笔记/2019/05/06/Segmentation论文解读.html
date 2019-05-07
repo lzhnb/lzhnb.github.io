@@ -83,18 +83,21 @@
 
 
 
-<meta name="description" content="SG-One Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）">
+<meta name="description" content="SG-One: Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）关于小样本学习详情见Matching_Networks_for_One_Shot_Learning论文解读 SG-One 介绍简介针对语义分割（Semantic Segementation）的问题，以往传统的方法都是针对目标对象建立分割数据集">
 <meta name="keywords" content="小样本学习,语义分割">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SG-One论文解读">
 <meta property="og:url" content="https://lzhnb.github.io/论文笔记/2019/05/06/Segmentation论文解读.html">
 <meta property="og:site_name" content="氵景页の博客">
-<meta property="og:description" content="SG-One Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）">
+<meta property="og:description" content="SG-One: Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）关于小样本学习详情见Matching_Networks_for_One_Shot_Learning论文解读 SG-One 介绍简介针对语义分割（Semantic Segementation）的问题，以往传统的方法都是针对目标对象建立分割数据集">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-06T05:20:36.295Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/SG-One/Figure1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/SG-One/OSLSM.jpg">
+<meta property="og:updated_time" content="2019-05-06T09:53:08.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SG-One论文解读">
-<meta name="twitter:description" content="SG-One Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）">
+<meta name="twitter:description" content="SG-One: Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）关于小样本学习详情见Matching_Networks_for_One_Shot_Learning论文解读 SG-One 介绍简介针对语义分割（Semantic Segementation）的问题，以往传统的方法都是针对目标对象建立分割数据集">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lzhnb/blog_images/master/SG-One/Figure1.jpg">
 
 
 
@@ -346,7 +349,23 @@
       
 
       
-        <h2 id="SG-One-Similarity-Guidance-Network-for-One-Shot-Semantic-Segmentation论文解读（施工中）"><a href="#SG-One-Similarity-Guidance-Network-for-One-Shot-Semantic-Segmentation论文解读（施工中）" class="headerlink" title="SG-One Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）"></a>SG-One Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）</h2>
+        <h2 id="SG-One-Similarity-Guidance-Network-for-One-Shot-Semantic-Segmentation论文解读（施工中）"><a href="#SG-One-Similarity-Guidance-Network-for-One-Shot-Semantic-Segmentation论文解读（施工中）" class="headerlink" title="SG-One: Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）"></a>SG-One: Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）</h2><h1 id="关于小样本学习"><a href="#关于小样本学习" class="headerlink" title="关于小样本学习"></a>关于小样本学习</h1><p>详情见<a href="https://lzhnb.github.io/2019/04/25/Matching-Networks-for-One-Shot-Learning%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/">Matching_Networks_for_One_Shot_Learning论文解读</a></p>
+<h1 id="SG-One-介绍"><a href="#SG-One-介绍" class="headerlink" title="SG-One 介绍"></a>SG-One 介绍</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>针对语义分割（Semantic Segementation）的问题，以往传统的方法都是针对目标对象建立分割数据集用于训练，这样的方法所需要的 pixel-level 数据集的标注成本极高，且该方法仅适用于训练过的类别对象，无法用于未知（没有参与训练）类别的物体的分割任务。<br>虽然之前已经有了利用小样本学习的方法进行语义分割的先例（OSLSM），但是效果不尽人意，而且与传统方法的 state-of-art 相比任有较大差距。<br>而且与以往的小样本学习用于语义分割的做法有所不同的就是对 support set 的处理，将 image 与作为 label 的 mask 分开输入，增强了整个模型的鲁棒性。<br>最终在性能指标方面，取得了在 Pascal VOC2012 数据集上取得了 mIOU值 为46.3%的成绩。</p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><blockquote>
+<h3 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h3><p><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/SG-One/Figure1.jpg" alt="avatar">  </p>
+</blockquote>
+<h3 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h3><p>作者在论文中依旧提到了 OSLSM 的模型结构，关于 OSLSM 的模型如下：<br><img src="https://raw.githubusercontent.com/lzhnb/blog_images/master/SG-One/OSLSM.jpg" alt="avatar"><br>关于该方法，作者提出了两点不足：  </p>
+<ol>
+<li>Segmentation Branch 与 Conditioning Branch 采用两个并行的网络会导致引入多余的参数，更容易引起过拟合也会导致计算资源的浪费。  </li>
+<li>在结合 support 与 query imgae 的特征时，仅仅是在两者的通道上做一个点积操作时不足以引导 query image 取得一个很好的分割结果的。  </li>
+</ol>
+<p>基于这两点的不足作者提出了相应的改进方式，便得到了如图示的 Similarity Guidance Network。<br>该网络的出发点还是在于提取 support 与 query image 的的特征，并利用两者特征来有效地结合相似性从而引导 query image 的分割。</p>
+<h4 id="改进点"><a href="#改进点" class="headerlink" title="改进点"></a>改进点</h4><ul>
+<li>首先是在利用 support 提取 representative vector(<strong>rv</strong>) 的过程中，之前的方法都是对 support 的 image 与 mask 一起做处理（OSLSM 中利用 mask 掩盖 image 只提取前景部分的图像）再提取特征，然后对提取到的特征做 pooling 或是全连接的操作得到 <strong>rv</strong>。<br>而论文中提到的做法则是 support  image 与 query image 投入一样的网络中提取特征然后对 support image 提取到的特征利用 support mask 对其进行一个掩盖的处理 - 只提取前景部分对应的特征，然后对处理后的特征做一个全局均值池化（以上步骤在论文中称为 masked average pooling operation）就得到了 <strong>rv</strong>。<br>这种操作的好处就在于没有破坏 input image 的结构与完整性，能够更有效地提取全局特征同时还能避免背景特征对提取 <strong>rv</strong> 的影响。</li>
+<li>其次就是再后面进行分割的过程中，OSLSM 等方法直接用提取的 <strong>rv</strong> 与 query image 的特征通道上做一个点积来得到分割的结果，而文中提到的方法不仅利用了 <strong>rv</strong> 更加利用了 support image 提取到的特征来计算余弦相似度进而进行分割结果的获取。</li>
+<li>还有一点便是在网络结构上与 OSLSM 等方法不同的就是两个分支在 backend 上均采用一个网络并且权重共享，这样就能减少整个网络的参数量并且节约计算的成本。</li>
+</ul>
+<h4 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h4>
       
     </div>
     
@@ -387,6 +406,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/论文笔记/2019/05/07/Feature-Pyramid-Networks-for-Object-Detection论文解读.html" rel="prev" title="Feature-Pyramid-Networks-for-Object-Detection论文解读">
+                Feature-Pyramid-Networks-for-Object-Detection论文解读 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,7 +488,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -487,7 +510,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -536,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SG-One-Similarity-Guidance-Network-for-One-Shot-Semantic-Segmentation论文解读（施工中）"><span class="nav-number">1.</span> <span class="nav-text">SG-One Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SG-One-Similarity-Guidance-Network-for-One-Shot-Semantic-Segmentation论文解读（施工中）"><span class="nav-number">1.</span> <span class="nav-text">SG-One: Similarity Guidance Network for One-Shot Semantic Segmentation论文解读（施工中）</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#关于小样本学习"><span class="nav-number"></span> <span class="nav-text">关于小样本学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SG-One-介绍"><span class="nav-number"></span> <span class="nav-text">SG-One 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">2.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图示"><span class="nav-number">2.1.</span> <span class="nav-text">图示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解读"><span class="nav-number">2.2.</span> <span class="nav-text">解读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#改进点"><span class="nav-number">2.2.1.</span> <span class="nav-text">改进点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现思路"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现思路</span></a></li></ol></li></ol></li></ol></li></div>
             
 
           </div>
