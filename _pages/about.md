@@ -26,12 +26,12 @@ I am currently a master student at [South China University of Techonology (SCUT)
 
 # 📝 Publications
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2022</div><img src="images/SSTNet.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2022</div><img src="images/VISTA.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [VISTA: Boosting 3D Object Detection via Dual Cross-VIew SpaTial Attention](https://openaccess.thecvf.com/content/CVPR2022/papers/Deng_VISTA_Boosting_3D_Object_Detection_via_Dual_Cross-VIew_SpaTial_Attention_CVPR_2022_paper.pdf)
 
-Shengheng Deng*, **Zhihao Liang***, Lin Sun, Kui Jia
+Shengheng Deng\*, **Zhihao Liang\***, Lin Sun, Kui Jia
 
 [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=oQpAzREAAAAJ&citation_for_view=oQpAzREAAAAJ:u-x6o8ySG0sC)
 - We propose a novel plug-and-play fusion module Dual Cross-VIew SpaTial Attention (VISTA) to produce well-fused multi-view features to boost the performances of 3D object detector. Our proposed VISTA replaces the MLPs with convolutional operators, which is capable of better handling the local cues for attention modeling.
@@ -52,7 +52,7 @@ Shengheng Deng*, **Zhihao Liang***, Lin Sun, Kui Jia
 </div>
 
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2020</div><img src="images/fgn.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2020</div><img src="images/FGN.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [Fgn: Fully guided network for few-shot instance segmentation](https://openaccess.thecvf.com/content_CVPR_2020/papers/Fan_FGN_Fully_Guided_Network_for_Few-Shot_Instance_Segmentation_CVPR_2020_paper.pdf)
