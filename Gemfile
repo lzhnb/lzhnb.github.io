@@ -22,6 +22,10 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 group :jekyll_plugins do
   # gem "jekyll-archives"
   gem "jekyll-feed"
-  gem 'jekyll-sitemap'
-  gem 'hawkins'
+  gem "jekyll-sitemap"
+  gem "hawkins"
 end
+
+# gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw]
+# gem "tzinfo"
+gem "webrick", "~> 1.7"
