@@ -17,7 +17,9 @@ redirect_from:
 
 <span class="anchor" id="about-me"></span>
 
-I am currently a master student at [South China University of Techonology (SCUT)](https://www.scut.edu.cn/en/), and supervised by [Prof. Kui Jia](http://kuijia.site/). I received my bachelor degree from the same university (i.e. SCUT) in 2020, and expect to obtain my master degree in 2025.
+I am currently a Ph.D. at [South China University of Techonology (SCUT)](https://www.scut.edu.cn/en/), advised by [Prof. Kui Jia](http://kuijia.site/). I received my bachelor degree from the same university (i.e. SCUT) in 2020, and expect to obtain my Ph.D. degree in 2025.
+
+I mainly focus on **3D Computer Vision**. My current research interests include Computer Graphics, 3D Semantic Learning and Reconstruction. Recently, I am working on Multi-View Reconstruction.
 
 
 <!-- # 🔥 News -->
@@ -66,5 +68,6 @@ Zhibo Fan, Jin-Gang Yu, **Zhihao Liang**, Jiarong Ou, Changxin Gao, Gui-Song Xia
 
 
 # 📖 Educations
-- *2020.09 - 2022.04 (now)*, Ph.D., South China University of Technology, Guangzhou.
+- *2021.09 - 2022.04 (now)*, Ph.D., South China University of Technology, Guangzhou.
+- *2020.09 - 2021.04*, Master, South China University of Technology, Guangzhou.
 - *2016.09 - 2020.06*, Undergraduate, South China University of Technology, Guangzhou.
