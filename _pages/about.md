@@ -28,14 +28,14 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 # 📝 Publications
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2023</div><img src="images/HliexSurf.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2023</div><img src="images/HelixSurf.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [HelixSurf: A Robust and Efficient Neural Implicit Surface Learning of Indoor Scenes with Iterative Intertwined Regularization](https://arxiv.org/pdf/2302.14340.pdf)
 
 **Zhihao Liang\***, Zhangjin Huang\*, Changxing Ding, Kui Jia
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=oQpAzREAAAAJ&citation_for_view=oQpAzREAAAAJ:u-x6o8ySG0sC)
+[**Project**](https://lzhnb.github.io/project-pages/helixsurf.html)
 - We present a novel method of HelixSurf for reconstruction of indoor scene surface from multi-view images. HelixSurf enjoys the complementary benefits of the traditional MVS and the recent neural implicit surface learning, by regularizing the learning/optimization of one strategy iteratively using the intermediate prediction from the other.
 </div>
 </div>
@@ -47,7 +47,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 Shengheng Deng\*, **Zhihao Liang\***, Lin Sun, Kui Jia
 
-[**Project**](https://lzhnb.github.io/project-pages/helixsurf.html)
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=oQpAzREAAAAJ&citation_for_view=oQpAzREAAAAJ:u-x6o8ySG0sC)
 - We propose a novel plug-and-play fusion module Dual Cross-VIew SpaTial Attention (VISTA) to produce well-fused multi-view features to boost the performances of 3D object detector. Our proposed VISTA replaces the MLPs with convolutional operators, which is capable of better handling the local cues for attention modeling.
 </div>
 </div>
