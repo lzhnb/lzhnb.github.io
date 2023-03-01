@@ -35,7 +35,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 **Zhihao Liang\***, Zhangjin Huang\*, Changxing Ding, Kui Jia
 
-[**Project**](https://lzhnb.github.io/project-pages/helixsurf.html)
+[**Project**](https://lzhnb.github.io/project-pages/helixsurf.html) | [**Code**](https://github.com/Gorilla-Lab-SCUT/HelixSurf)
 - We present a novel method of HelixSurf for reconstruction of indoor scene surface from multi-view images. HelixSurf enjoys the complementary benefits of the traditional MVS and the recent neural implicit surface learning, by regularizing the learning/optimization of one strategy iteratively using the intermediate prediction from the other.
 </div>
 </div>
@@ -47,7 +47,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 Shengheng Deng\*, **Zhihao Liang\***, Lin Sun, Kui Jia
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=oQpAzREAAAAJ&citation_for_view=oQpAzREAAAAJ:u-x6o8ySG0sC)
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=oQpAzREAAAAJ&citation_for_view=oQpAzREAAAAJ:u-x6o8ySG0sC) | [**Code**](https://github.com/Gorilla-Lab-SCUT/VISTA)
 - We propose a novel plug-and-play fusion module Dual Cross-VIew SpaTial Attention (VISTA) to produce well-fused multi-view features to boost the performances of 3D object detector. Our proposed VISTA replaces the MLPs with convolutional operators, which is capable of better handling the local cues for attention modeling.
 </div>
 </div>
@@ -60,7 +60,7 @@ Shengheng Deng\*, **Zhihao Liang\***, Lin Sun, Kui Jia
 
 **Zhihao Liang**, Zhihao Li, Songcen Xu, Mingkui Tan, Kui Jia
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=oQpAzREAAAAJ&citation_for_view=oQpAzREAAAAJ:9yKSN-GCB0IC)
+[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=oQpAzREAAAAJ&citation_for_view=oQpAzREAAAAJ:9yKSN-GCB0IC) | [**Code**](https://github.com/Gorilla-Lab-SCUT/SSTNet)
 - We propose an end-to-end solution of Semantic Superpoint Tree Network (SSTNet) to directly propose and evaluate object instances from observed 3D scenes. By working with superpoints, our method enjoys the benefit of geometric regularity that supports consistent and sharp segmentations, especially at object boundaries.
 </div>
 </div>
