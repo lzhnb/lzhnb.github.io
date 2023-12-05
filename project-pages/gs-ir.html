@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GS-IR</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+-->
+    <section>
+        <div class="jumbotron text-center mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>GS-IR: 3D Gaussian Splatting for Inverse Rendering</h1>
+                        <hr>
+                        <h5>
+                            <a href="https://lzhnb.github.io/" target="_blank">Zhihao Liang<sup>1</sup>*</a>,
+                            <a href="https://qzhang-cv.github.io/" target="_blank">Qi Zhang<sup>2</sup>*</a>,
+                            <a href="https://scholar.google.com.hk/citations?user=PhkrqioAAAAJ&hl=zh-CN"
+                                target="_blank">Ying Feng<sup>2</sup></a>,
+                            <a href="https://scholar.google.com/citations?user=4oXBp9UAAAAJ&hl=zh-CN"
+                                target="_blank">Ying Shan<sup>2</sup></a>,
+                            <a href="https://kuijia.site" target="_blank">Kui Jia<sup>3</sup></a>
+                        </h5>
+                        <p><sup>1</sup>South China University of Technology, <sup>2</sup>Tencen AI Lab, <br>
+                            <sup>3</sup>School of Data Science, The Chinese University of Hong Kong, Shenzhen</p>
+                        <p>
+                            <a class="btn btn-secondary btn-lg" href="https://arxiv.org/abs/2311.16473"
+                                role="button">Paper</a>
+                            <a class="btn btn-secondary btn-lg" href="https://github.com/lzhnb/GS-IR"
+                                role="button">Code</a>
+                            <!-- <a class="btn btn-secondary btn-lg" href="https://www.dropbox.com/sh/5tam07ai8ch90pf/AADniBT3dmAexvm_J1oL__uoa" role="button">Data</a> </p> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Abstract</h2>
+                    <hr style="margin-top:0px">
+                    <!--			  <div><img class="img-fluid" src="images/teaser.jpg" alt=""></div>-->
+                    <img width="80%" src="assets/gs-ir/teaser.png" />
+                    <video width="80%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="assets/gs-ir/bicycle/teaser.mp4" type="video/mp4">
+                    </video>
+                    <video width="90%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="assets/gs-ir/ficus/teaser.mp4" type="video/mp4">
+                    </video>
+                    <!-- <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="assets/helixsurf/helix.gif" type="video/mp4">
+                    </video> -->
+                    <br><br>
+                    <p class="text-left">
+                        We propose GS-IR, a novel inverse rendering approach based on 3D Gaussian Splatting (GS) that
+                        leverages forward mapping volume rendering to achieve photorealistic novel view synthesis and
+                        relighting results. Unlike previous works that use implicit neural representations and volume
+                        rendering (e.g. NeRF), which suffer from low expressive power and high computational complexity,
+                        we extend GS, a top-performance representation for novel view synthesis, to estimate scene
+                        geometry, surface material, and environment illumination from multi-view images captured under
+                        unknown lighting conditions. There are two main problems when introducing GS to inverse
+                        rendering: 1) GS does not support producing plausible normal natively; 2) forward mapping (e.g.
+                        rasterization and splatting) cannot trace the occlusion like backward mapping (e.g. ray
+                        tracing). To address these challenges, our GS-IR proposes an efficient optimization scheme that
+                        incorporates a depth-derivation-based regularization for normal estimation and a baking-based
+                        occlusion to model indirect lighting. The flexible and expressive GS representation allows us to
+                        achieve fast and compact geometry reconstruction, photorealistic novel view synthesis, and
+                        effective physically-based rendering. We demonstrate the superiority of our method over baseline
+                        methods through qualitative and quantitative evaluations on various challenging scenes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Contributions & Method</h2>
+                    <hr style="margin-top:0px">
+                    <!-- <p class="text-left">
+                        XXX.
+                    </p> -->
+                </div>
+            </div>
+            <ul>
+                <li>
+                    We present <b>GS-IR</b> that models a scene as a set of 3D Gaussians to achieve <b>physically-based rendering</b> and state-ofthe-art decomposition results for both <b>objects</b> and <b>scenes</b>;
+                </li>
+                <li>
+                    We propose an efficient optimization scheme with regularization to concentrate <b>depth gradient</b> around GS and produce <b>reliable normals</b> for GS-IR;
+                </li>
+                <li>
+                    We develop a <b>baking-based</b> method embedded in GS-IR to handle the <b>occlusion in modeling indirect lighting</b>.
+                </li>
+            </ul>
+            <div class="row" style="margin-top:5px">
+                <div class="col-12 text-center">
+                    <img width="70%" src="assets/gs-ir/pipeline.png" />
+                    <br>
+                    <p class="text-center">In the baking stage, we cache the occlusion from the pretrained 3D Gaussians and store it in volumes.</p>
+                    <img width="70%" src="assets/gs-ir/occlusion_caching.png" />
+                    <br>
+                    <p class="text-center">In the decomposition stage, we conduct masked-trilinear interpolation to recover the occlusion from volumes.</h4>
+                    <img width="70%" src="assets/gs-ir/occlusion_recovery.png" />
+                    <!-- <img class="img-fluid" src="assets/gs-ir/pipeline.png" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Decompsoition & Relighting Results</h2>
+                    <hr style="margin-top:0px">
+                    <h4>TensoIR</h4>
+                    <img width="80%" src="assets/gs-ir/tensoir.png" />
+                    <h4>Mip-NeRF 360</h4>
+                    <img width="80%" src="assets/gs-ir/mipnerf360.png" />
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Relighting Results of Point Lighting</h2>
+                    <hr style="margin-top:0px">
+                    <p class="text-left">
+                        We implement the shadow map with reference to the point shadow on <a href="https://learnopengl.com/Advanced-Lighting/Shadows/Point-Shadows">LearnOpenGL</a>. <br>
+                        We visualize the cases of rotating the point light source with a fixed camera and rotating the camera with a fixed point light source respectively.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <video width="80%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="assets/gs-ir/bicycle/relighting.mp4" type="video/mp4">
+                    </video>
+                    <video width="80%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="assets/gs-ir/garden/relighting.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <footer class="text-center">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12">
+                    <h2>Citation</h2>
+                    <hr style="margin-top:0px">
+                    <div class="bibtexsection">
+                        <pre><code>@article{liang2023gs,
+    title={GS-IR: 3D Gaussian Splatting for Inverse Rendering},
+    author={Liang, Zhihao and Zhang, Qi and Feng, Ying and Shan, Ying and Jia, Kui},
+    journal={arXiv preprint arXiv:2311.16473},
+    year={2023}
+}</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <br>
+    <br>
+    <footer class="text-center">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12">
+                    <h2>Acknowledgements</h2>
+                    <hr style="margin-top:0px">
+                    <div class="col-12 text-center">
+                        <p class="text-left">
+                            The website template was borrowed from <a href="https://lioryariv.github.io/idr/">Lior Yariv</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body>
+</html>
