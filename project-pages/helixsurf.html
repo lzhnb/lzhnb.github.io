@@ -1,256 +1,235 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-
-    <!-- download external packages -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"
-        integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- project info -->
-    <meta name="description"
-        content="The proposal recovers an underlying scene geometry and colors from a sparse set of RGBD view observations by sequentially generating novel RGBD views.">
-    <meta name="keywords" content="Scene Synthesis, NeRF, Reconstruction">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        HelixSurf: A Robust and Efficient Neural Implicit Surface Learning of Indoor Scenes with Iterative Intertwined
-        Regularization
-    </title>
-
+    <title>HelixSurf: A Robust and Efficient Neural Implicit Surface Learning of Indoor Scenes with Iterative
+        Intertwined Regularization</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
 </head>
 
-
-
-
 <body>
+    <!--
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+-->
+    <section>
+        <div class="jumbotron text-center mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>HelixSurf: A Robust and Efficient Neural Implicit <br> Surface Learning of Indoor Scenes
+                            with <br> Iterative Intertwined Regularization</h1>
+                        <h4 style="color:#5a6268;"> CVPR 2023 </h4>
+                        <hr>
+                        <h5>
+                            <a href="https://lzhnb.github.io/" target="_blank">Zhihao Liang*</a>,
+                            <a href="https://scholar.google.com/citations?hl=zh-CN&user=AkmhptgAAAAJ"
+                                target="_blank">Zhangjin Huang*</a>,
+                            <a href="https://www2.scut.edu.cn/ft/2021/1102/c29779a449569/page.htm"
+                                target="_blank">Changxing Ding</a>,
+                            <a href="https://kuijia.site" target="_blank">Kui Jia</a>
+                        </h5>
+                        <p>South China University of Technology</p>
+                        <p>
+                            <a class="btn btn-secondary btn-lg" href="https://arxiv.org/pdf/2302.14340.pdf"
+                                role="button">Paper</a>
+                            <a class="btn btn-secondary btn-lg" href="https://github.com/Gorilla-Lab-SCUT/HelixSurf"
+                                role="button">Code</a>
+                            <!-- <a class="btn btn-secondary btn-lg" href="https://www.dropbox.com/sh/5tam07ai8ch90pf/AADniBT3dmAexvm_J1oL__uoa" role="button">Data</a> </p> -->
 
-    <section class="hero">
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <div class="columns is-centered">
-                    <div class="column has-text-centered">
-
-                        <!-- title -->
-                        <h1 class="title is-1 publication-title">
-                            HelixSurf: A Robust and Efficient Neural Implicit Surface Learning of Indoor Scenes with
-                            Iterative Intertwined Regularization
-                        </h1>
-
-                        <!-- authors -->
-                        <div class="is-size-5 publication-authors">
-
-                            <span class="author-block">
-                                <a target="_blank" href="https://lzhnb.github.io/">
-                                    <b>Zhihao Liang*</b>
-                                </a>
-                                <span style="margin-right: 0.3rem;">,</span>
-                            </span>
-
-                            <span class="author-block">
-                                <a target="_blank"
-                                    href="https://scholar.google.com/citations?hl=zh-CN&user=AkmhptgAAAAJ">
-                                    <b>Zhangjin Huang*</b>
-                                </a>
-                                <span style="margin-right: 0.3rem;">,</span>
-                            </span>
-
-                            <span class="author-block">
-                                <a target="_blank" href="https://www2.scut.edu.cn/ft/2021/1102/c29779a449569/page.htm">
-                                    <b>Changxing Ding</b>
-                                </a>
-                                <span style="margin-right: 0.3rem;">,</span>
-                            </span>
-
-                            <span class="author-block">
-                                <a target="_blank" href="https://kuijia.site">
-                                    <b>Kui Jia</b>
-                                </a>
-                            </span>
-
-                        </div>
-
-                        <!-- institutions -->
-                        <div class="is-size-5 publication-authors">
-                            <span class="author-block">South China University of Technology</span>
-                        </div>
-
-                        <!-- link buttons -->
-                        <div class="column has-text-centered">
-                            <div class="publication-links">
-
-                                <!-- PDF Link. -->
-                                <span class="link-block">
-                                    <a href="https://arxiv.org/pdf/2302.14340.pdf" target="_blank"
-                                        class="external-link button is-normal is-rounded is-link">
-                                        <span class="icon">
-                                            <i class="fas fa-file-pdf"></i>
-                                        </span>
-                                        <span><b>PDF</b></span>
-                                    </a>
-                                </span>
-
-                                <!-- arXiv link -->
-                                <span class="link-block">
-                                    <a href="https://arxiv.org/abs/2302.14340" target="_blank"
-                                        class="external-link button is-normal is-rounded is-link">
-                                        <span class="icon">
-                                            <i class="fa fa-paperclip"></i>
-                                        </span>
-                                        <span><b>arXiv</b></span>
-                                    </a>
-                                </span>
-
-                                <!-- Code Link. -->
-                                <span class="link-block">
-                                    <a href="https://github.com/Gorilla-Lab-SCUT/HelixSurf" target="_blank"
-                                        class="external-link button is-normal is-rounded is-link">
-                                        <span class="icon">
-                                            <i class="fab fa-github"></i>
-                                        </span>
-                                        <span><b>GitHub</b></span>
-                                    </a>
-                                </span>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-
-    <section class="section">
-        <div class="container is-max-desktop">
-
-            <!-- abstract. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-2">Abstract</h2>
-                    <div class="columns is-centered has-text-centered">
-                        <div class="column is-four-fifths">
-                            <img src="assets/helix.gif" />
-                        </div>
-                    </div>
-                    <div class="content is-size-5 has-text-justified">
-                        <p>
-                            Recovery of an underlying scene geometry from multi-view images stands as a long-time
-                            challenge in computer vision research. The recent promise leverages neural implicit surface
-                            learning and differentiable volume rendering, and achieves both the recovery of scene
-                            geometry and synthesis of novel views, where deep priors of neural models are used as an
-                            inductive smoothness bias.
-                        </p>
-                        <p>
-                            While promising for object-level surfaces, these methods suffer when coping with complex
-                            scene surfaces. In the meanwhile, traditional multi-view stereo can recover the geometry of
-                            scenes with rich textures, by globally optimizing the local, pixel-wise correspondences
-                            across multiple views.
-                        </p>
-                        <p>
-                            We are thus motivated to make use of the complementary benefits from the two strategies, and
-                            propose a method termed Helix-shaped neural implicit Surface learning or HelixSurf;
-                            HelixSurf uses the intermediate prediction from one strategy as the guidance to regularize
-                            the learning of the other one, and conducts such intertwined regularization iteratively
-                            during the learning process. We also propose an efficient scheme for differentiable volume
-                            rendering in HelixSurf.
-                        </p>
-                        <p>
-                            Experiments on surface reconstruction of indoor scenes show that our method compares
-                            favorably with existing methods and is orders of magnitude faster, even when some of
-                            existing methods are assisted with auxiliary training data.
-                        </p>
-                    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Abstract</h2>
+                    <hr style="margin-top:0px">
+                    <!--			  <div><img class="img-fluid" src="images/teaser.jpg" alt=""></div>-->
+                    <img width="60%" src="assets/helixsurf/helix.gif" />
+                    <!-- <video width="100%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="assets/helixsurf/helix.gif" type="video/mp4">
+                    </video> -->
+                    <br><br>
+                    <p class="text-left">
+                        Recovery of an underlying scene geometry from multi-view images stands as a long-time challenge
+                        in computer vision research. The recent promise leverages neural implicit surface learning and
+                        differentiable volume rendering, and achieves both the recovery of scene geometry and synthesis
+                        of novel views, where deep priors of neural models are used as an inductive smoothness bias.
+                        While promising for object-level surfaces, these methods suffer when coping with complex scene
+                        surfaces. In the meanwhile, traditional multi-view stereo can recover the geometry of scenes
+                        with rich textures, by globally optimizing the local, pixel-wise correspondences across multiple
+                        views. We are thus motivated to make use of the complementary benefits from the two strategies,
+                        and propose a method termed Helix-shaped neural implicit Surface learning or HelixSurf;
+                        HelixSurf uses the intermediate prediction from one strategy as the guidance to regularize the
+                        learning of the other one, and conducts such intertwined regularization iteratively during the
+                        learning process. We also propose an efficient scheme for differentiable volume rendering in
+                        HelixSurf. Experiments on surface reconstruction of indoor scenes show that our method compares
+                        favorably with existing methods and is orders of magnitude faster, even when some of existing
+                        methods are assisted with auxiliary training data.</p>
                 </div>
             </div>
-
-            <!-- Pipeline. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-2">Pipeline</h2>
+        </div>
+    </section>
+    <br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Contributions & Method</h2>
+                    <hr style="margin-top:0px">
+                    <!-- <p class="text-left">
+                        XXX.
+                    </p> -->
                 </div>
             </div>
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <img src="assets/overview.png" />
+            <ul>
+                <li>
+                    We present a novel method of <b>HelixSurf</b> for reconstruction of <b>indoor scene</b> surface from
+                    multi-view images. HelixSurf enjoys the <b>complementary benefits</b> of the traditional MVS and the
+                    recent neural implicit surface learning, by regularizing the learning/optimization of one strategy
+                    iteratively using the intermediate prediction from the other;
+                </li>
+                <li>
+                    MVS methods make less reliable predictions on <b>textureless</b> surface areas. We further devise a
+                    scheme that regularizes the learning on such areas by leveraging the <b>homogeneity organized</b> by
+                    superpixels in each observed image.
+                </li>
+            </ul>
+            <div class="row" style="margin-top:5px">
+                <div class="col-12 text-center">
+                    <img class="img-fluid" src="assets/helixsurf/overview.png" alt="">
                 </div>
             </div>
-
-            <!-- Results. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-2">Results</h2>
-                    <div style="display: flex">
-                        <div class="publication-video" style="margin: auto">
-                            <video controls autoplay>
-                                <source src="assets/regression.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Optimization Process</h2>
+                    <hr style="margin-top:0px">
+                    <p class="text-left">
+                        We give an Example of the optimization process (Surface, F-score, and Dynamic Occupancy Grids)on
+                        the <a href="http://www.scan-net.org/" target="_blank">ScanNet dataset</a>.</p>
                 </div>
             </div>
-
-            <!-- autoplay. -->
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-2">Comparison</h2>
-                    <div style="display: flex">
-                        <div class="publication-video" style="margin: auto">
-                            <video controls autoplay>
-                                <source src="assets/comparison.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <!-- <video width="80%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="assets/helixsurf/regression.mp4" type="video/mp4">
+                    </video> -->
+                    <img width="80%" src="assets/helixsurf/regression.gif" />
                 </div>
             </div>
-
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Comparison</h2>
+                    <hr style="margin-top:0px">
+                    <!-- <p class="text-left">
+                        Comparison with other methods.
+                    </p> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <!-- <video width="70%" playsinline="" autoplay="" loop="" preload="" muted="">
+                        <source src="images/fountain.mp4" type="video/mp4">
+                    </video> -->
+                    <img width="80%" src="assets/helixsurf/comparison.gif" />
+                </div>
+            </div>
         </div>
     </section>
 
-
-
-    <section class="section" id="BibTeX">
-        <div class="container is-max-desktop content">
-            <h2 class="title">BibTeX</h2>
-            <div style="margin-top: 20px; margin-bottom: 20px; font-size: 20px;">
-                Please cite the <i>arXiv</i> version for now.
+    <br>
+    <br>
+    <footer class="text-center">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12">
+                    <h2>Citation</h2>
+                    <hr style="margin-top:0px">
+                    <div class="bibtexsection">
+                        <pre><code>@inproceedings{liang2023helixsurf,
+    title={HelixSurf: A Robust and Efficient Neural Implicit Surface Learning of Indoor Scenes with Iterative Intertwined Regularization},
+    author={Liang, Zhihao and Huang, Zhangjin and Ding, Changxing and Jia, Kui},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+    pages={13165--13174},
+    year={2023}
+}</code>
+                    </div>
+                </div>
             </div>
-            <pre><code>@misc{liang2023helixsurf,
-    title={HelixSurf: A Robust and Efficient Neural Implicit Surface Learning of Indoor Scenes with Iterative Intertwined Regularization}, 
-    author={Zhihao Liang and Zhangjin Huang and Changxing Ding and Kui Jia},
-    year={2023},
-    eprint={2302.14340},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
-}</code></pre>
         </div>
-    </section>
-
-
-
-
-
-
-
-    <footer class="footer has-background-link has-text-centered has-text-white" style="padding:1rem">
-        <p>
-            Created with <u><a href="https://bulma.io/" target="_blank" style="color:white">BULMA</a></u>,
-            modified from <u><a href="https://jblei.site/project-pages/rgbd-diffusion.html" target="_blank"
-                    style="color:white">RGBD-Diffusion</a></u>.
-        </p>
     </footer>
 
 
+    <br>
+    <br>
+    <footer class="text-center">
+        <div class="container">
+            <div class="row ">
+                <div class="col-12">
+                    <h2>Acknowledgements</h2>
+                    <hr style="margin-top:0px">
+                    <div class="col-12 text-center">
+                        <p class="text-left">
+                            The website template was borrowed from <a href="https://lioryariv.github.io/idr/">Lior Yariv</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
-
-
-
-</body>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body>
 </html>
