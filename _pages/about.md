@@ -28,7 +28,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 # 📝 Publications
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2023</div><img src="images/HelixSurf.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Arxiv 2023</div><img src="images/gs-ir.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [GS-IR: 3D Gaussian Splatting for Inverse Rendering](https://arxiv.org/abs/2311.16473)
@@ -40,7 +40,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 </div>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2023</div><img src="images/gs-ir.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2023</div><img src="images/HelixSurf.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [HelixSurf: A Robust and Efficient Neural Implicit Surface Learning of Indoor Scenes with Iterative Intertwined Regularization](https://arxiv.org/pdf/2302.14340.pdf)
