@@ -40,9 +40,6 @@ Zhangjin Huang\*, **Zhihao Liang\***, Haojie Zhang, Yangkai Lin, Kui Jia
 </div>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2023</div><img src="images/HelixSurf.png" alt="sym" width="100%"></div></div>
-<div class="paper-box-text" markdown="1">
-
 <div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2023</div><img src="images/gs-ir.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
