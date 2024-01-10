@@ -28,7 +28,22 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 # 📝 Publications
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Arxiv 2023</div><img src="images/gs-ir.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/sur2f.png" alt="sym" width="100%"></div></div>
+<div class="paper-box-text" markdown="1">
+
+[Sur2f: A Hybrid Representation for High-Quality and Efficient Surface Reconstruction from Multi-view Images](https://arxiv.org/abs/2401.03704)
+
+Zhangjin Huang\*, **Zhihao Liang\***, Haojie Zhang, Yangkai Lin, Kui Jia
+
+[**Project**](https://huang-zhangjin.github.io/project-pages/sur2f.html) | [**Code**](https://huang-zhangjin.github.io/project-pages/comming_soom.html)
+- We propose a new hybrid representation, termed Sur2f, that can enjoy the benefits of both explicit and implicit surface representations. This is achieved by learning two parallel streams of an implicit SDF and an explicit surrogate surface mesh, both of which, by rendering, receive supervision from multi-view image observations.
+</div>
+</div>
+
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2023</div><img src="images/HelixSurf.png" alt="sym" width="100%"></div></div>
+<div class="paper-box-text" markdown="1">
+
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2023</div><img src="images/gs-ir.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [GS-IR: 3D Gaussian Splatting for Inverse Rendering](https://arxiv.org/abs/2311.16473)
@@ -92,6 +107,6 @@ Zhibo Fan, Jin-Gang Yu, **Zhihao Liang**, Jiarong Ou, Changxin Gao, Gui-Song Xia
 
 
 # 📖 Educations
-- *2021.09 - 2022.04 (now)*, Ph.D., South China University of Technology, Guangzhou.
+- *2021.09 - Now*, Ph.D., South China University of Technology, Guangzhou.
 - *2020.09 - 2021.04*, Master, South China University of Technology, Guangzhou.
 - *2016.09 - 2020.06*, Undergraduate, South China University of Technology, Guangzhou.
