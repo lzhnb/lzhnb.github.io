@@ -35,7 +35,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 **Zhihao Liang**, Qi Zhang, Wenbo Hu, Lei Zhu, Ying Feng, Kui Jia
 
-[**Project**](https://lzhnb.github.io/project-pages/analytic-splatting/index.html) | [**Code**](https://github.com/lzhnb/Analytic-Splatting)
+[**Project**](https://lzhnb.github.io/project-pages/analytic-splatting) | [**Code**](https://github.com/lzhnb/Analytic-Splatting)
 - In this paper, we derive an analytical solution to address this issue. More specifically, we use a conditioned logistic function as the analytic approximation of the cumulative distribution function (CDF) in a one-dimensional Gaussian signal and calculate the Gaussian integral by subtracting the CDFs. We then introduce this approximation in the two-dimensional pixel shading, and present Analytic-Splatting, which analytically approximates the Gaussian integral within the 2D-pixel window area to better capture the intensity response of each pixel. Moreover, we use the approximated response of the pixel window integral area to participate in the transmittance calculation of volume rendering, making Analytic-Splatting sensitive to the changes in pixel footprint at different resolutions.
 </div>
 </div>
