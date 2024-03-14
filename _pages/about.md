@@ -28,6 +28,30 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 # 📝 Publications
 
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/analytic-splatting.png" alt="sym" width="100%"></div></div>
+<div class="paper-box-text" markdown="1">
+
+[Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration](https://arxiv.org/abs/XXXX.XXXX)
+
+**Zhihao Liang**, Qi Zhang, Wenbo Hu, Lei Zhu, Ying Feng, Kui Jia
+
+[**Project**](https://lzhnb.github.io/project-pages/analytic-splatting/index.html) | [**Code**](https://github.com/lzhnb/Analytic-Splatting)
+- In this paper, we derive an analytical solution to address this issue. More specifically, we use a conditioned logistic function as the analytic approximation of the cumulative distribution function (CDF) in a one-dimensional Gaussian signal and calculate the Gaussian integral by subtracting the CDFs. We then introduce this approximation in the two-dimensional pixel shading, and present Analytic-Splatting, which analytically approximates the Gaussian integral within the 2D-pixel window area to better capture the intensity response of each pixel. Moreover, we use the approximated response of the pixel window integral area to participate in the transmittance calculation of volume rendering, making Analytic-Splatting sensitive to the changes in pixel footprint at different resolutions.
+</div>
+</div>
+
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/3DGen-survey.png" alt="sym" width="100%"></div></div>
+<div class="paper-box-text" markdown="1">
+
+[Advances in 3D Generation: A Survey](https://arxiv.org/abs/2401.17807)
+
+Xiaoyu Li, Qi Zhang, Di Kang, Weihao Cheng, Yiming Gao, Jingbo Zhang, **Zhihao Liang**, Jing Liao, Yan-Pei Cao, Ying Shan
+
+[**Project**](https://arxiv.org/abs/2401.17807)
+- In this survey, we aim to introduce the fundamental methodologies of 3D generation methods and establish a structured roadmap, encompassing 3D representation, generation methods, datasets, and corresponding applications. We hope this survey will help readers explore this exciting topic and foster further advancements in the field of 3D content generation.
+</div>
+</div>
+
 <div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/sur2f.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
@@ -40,7 +64,7 @@ Zhangjin Huang\*, **Zhihao Liang\***, Haojie Zhang, Yangkai Lin, Kui Jia
 </div>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2023</div><img src="images/gs-ir.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">CVPR 2024</div><img src="images/gs-ir.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [GS-IR: 3D Gaussian Splatting for Inverse Rendering](https://arxiv.org/abs/2311.16473)

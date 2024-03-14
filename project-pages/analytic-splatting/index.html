@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration">
+    <meta name="keywords" content="Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analytic-Splatting</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./static/css/bootstrap-4.4.1.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/app.js"></script>
+    <script src="./static/js/video_comparison.js"></script>
+
+    <link rel="stylesheet" href="./static/css/dics.original.css">
+    <script src="./static/js/event_handler.js"></script>
+    <script src="./static/js/dics.original.js"></script>
+    <!-- <script>
+        function openDemo(demoName) {
+            window.location = 'https://lzhnb.github.io/project-pages/analytic-splatting-demo/' + demoName + '.html';
+        }
+    </script> -->
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>Analytic-Splatting</strong>
+                        </h1>
+                        <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">Anti-Aliased 3D Gaussian Splatting</h2>
+                        <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">via Analytic Integration</h2>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://lzhnb.github.io/">Zhihao
+                                    Liang</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://qzhang-cv.github.io/">Qi
+                                    Zhang</a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://wbhu.github.io/">Wenbo
+                                    Hu</a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://rayleizhu.github.io">Lei
+                                    Zhu</a><sup>3</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://scholar.google.com.hk/citations?user=PhkrqioAAAAJ&hl=zh-CN">Ying
+                                    Feng</a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://kuijia.site">Kui Jia</a><sup>4</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>South China University of Technology</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br>
+                            <span class="author-block"><sup>2</sup>Tencen AI Lab</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><sup>3</sup>City University of Hong Kong
+                                University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br>
+                            <span class="author-block"><sup>4</sup>School of Data Science, The Chinese University of Hong Kong, Shenzhen</span>
+
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/XXXX.XXXXX.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/lzhnb/Analytic-Splatting"
+                                        class="external-link button is-normal is-rounded is-dark disabled">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+
+                                <!-- Viewer Link. -->
+                                <span class="link-block">
+                                    <a href="https://lzhnb.github.io/project-pages/analytic-splatting-demo/"
+                                        class="external-link button is-normal is-rounded is-dark disabled">
+                                        <span class="icon">
+                                            <i class="fab fa-dribbble"></i>
+                                        </span>
+                                        <span>Viewer (coming)</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <!-- Method. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3" style="margin-top: -20px">Abstract</h2>
+                    <hr style="margin-top:0px">
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <video width="30%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="resources/integral_domain.mp4" type="video/mp4">
+                        </video>
+                        <img width="65%" src="resources/teaser.png" />
+                    </div>
+
+                    <div class="content has-text-justified">
+                        <p style="margin-top: 30px">
+                            The 3D Gaussian Splatting (3DGS) gained its popularity recently by combining the advantages of
+                            both primitive-based and volumetric 3D representations, resulting in improved quality and
+                            efficiency for 3D scene rendering.
+                            However, 3DGS is not alias-free, and its rendering at varying resolutions could produce severe
+                            blurring or jaggies.
+                            This is because 3DGS treats each pixel as an isolated, single point rather than as an area,
+                            causing insensitivity to changes in the footprints of pixels.
+                            Consequently, this discrete sampling scheme inevitably results in aliasing, owing to the
+                            restricted sampling bandwidth.
+                            In this paper, we derive an analytical solution to address this issue.
+                            More specifically, we use a conditioned logistic function as the analytic approximation of the
+                            cumulative distribution function (CDF) in a one-dimensional Gaussian signal and calculate the
+                            Gaussian integral by subtracting the CDFs.
+                            We then introduce this approximation in the two-dimensional pixel shading, and present
+                            Analytic-Splatting, which analytically approximates the Gaussian integral within the 2D-pixel
+                            window area to better capture the intensity response of each pixel.
+                            Moreover, we use the approximated response of the pixel window integral area to participate in
+                            the transmittance calculation of volume rendering, making Analytic-Splatting sensitive to the
+                            changes in pixel footprint at different resolutions.
+                            Experiments on various datasets validate that our approach has better anti-aliasing capability
+                            that gives more details and better fidelity.</p>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <!--/ Animation. -->
+
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <!-- Results. -->
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+                    <hr style="margin-top:0px">
+                    <h4 class="title is-4 has-text-centered">Scenes from Mip-NeRF 360</h4>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: -20px;">
+                        <video width="46%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="resources/bicycle-compare.mp4" type="video/mp4">
+                        </video>
+                        <video width="46%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="resources/garden-compare.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <h4 class="title is-4 has-text-centered" style="margin-top: 20px">Objects from Blender Synthetic</h4>
+                    <div style="display: flex; justify-content: center; align-items: center; margin-top: -20px;">
+                        <video width="46%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="resources/ship-compare.mp4" type="video/mp4">
+                        </video>
+                        <video width="46%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="resources/ficus-compare.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <video width="46%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="resources/lego-compare.mp4" type="video/mp4">
+                        </video>
+                        <video width="46%" playsinline="" autoplay="" loop="" preload="" muted="">
+                            <source src="resources/mic-compare.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <br>
+                    <p class="text-left"><b>3DGS</b> suffers from aliasing due to its pixel-center sampling scheme,
+                        while <b>Analytic-Splatting</b> is anti-aliased and achieve high-fidelity details regardless of
+                        changes in focal length. Both are trained on the multi-scale datasets.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <!-- Results. -->
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">More Results</h2>
+                    <hr style="margin-top:0px">
+                    <h4 class="title is-4 has-text-centered">Scenes from Mip-NeRF 360</h4>
+                    <img width="100%" src="resources/scene_result.png" />
+                    <h4 class="title is-4 has-text-centered" style="margin-top: 20px">Objects from Blender Synthetic</h4>
+                    <img width="100%" src="resources/object_result.png" />
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- <section class="section">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Interactive Viewer</h2>
+
+                    <h3 class="title is-4">Real-Time Interactive Viewer</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Click the image to use the real-time interactive viewer. Please open the viewer with Chrome
+                            or Firefox.
+                            For more results, please check our <a
+                                href="https://lzhnb.github.io/project-pages/analytic-splatting-demo/">online
+                                viewer</a>.
+                        </p>
+                    </div>
+
+                    <div class="content-row">
+                        <div class="demo-scene-panel" onclick="openDemo('bicycle')">
+                            <img src="resources/images/bicycle.png" class="demo-scene-panel-image">
+                            <span class="small-title">Bicycle</span>
+                        </div>
+
+                        <div class="demo-scene-panel" onclick="openDemo('garden')">
+                            <img src="resources/images/garden.png" class="demo-scene-panel-image">
+                            <span class="small-title">Garden</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo('stump')">
+                            <img src="resources/images/stump.png" class="demo-scene-panel-image">
+                            <span class="small-title">Stump</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo('kitchen')">
+                            <img src="resources/images/kitchen.png" class="demo-scene-panel-image">
+                            <span class="small-title">Kitchen</span>
+                        </div>
+
+                    </div>
+
+                    <div class="content-row">
+                        <div class="demo-scene-panel" onclick="openDemo('chair')">
+                            <img src="resources/images/chair.png" class="demo-scene-panel-image">
+                            <span class="small-title">Chair</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo('ficus')">
+                            <img src="resources/images/ficus.png" class="demo-scene-panel-image">
+                            <span class="small-title">Ficus</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo('lego')">
+                            <img src="resources/images/lego.png" class="demo-scene-panel-image">
+                            <span class="small-title">Lego</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo('ship')">
+                            <img src="resources/images/ship.png" class="demo-scene-panel-image">
+                            <span class="small-title">Ship</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section> -->
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{liang2024analytic,
+    title={Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration},
+    author={Liang, Zhihao and Zhang, Qi and Hu, Wenbo and Zhu, Lei and Feng, Ying and Jia, Kui},
+    journal={arXiv preprint arXiv:XXXX.XXXXX},
+    year={2024}
+}</pre></code>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                            This webpage template is from <a
+                                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and
+                            open-sourcing this template.
+                            The video comparison with sliding bar is from <a
+                                href="https://dorverbin.github.io/refnerf/">Ref-NeRF</a>.
+                            The image comparison with sliding bar is from <a
+                                href="https://research.nvidia.com/labs/dir/neuralangelo/">Neuralangelo</a>.
+                        </p>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
