@@ -31,7 +31,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 <div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/analytic-splatting.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
-[Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration](https://arxiv.org/abs/XXXX.XXXX)
+[Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration](https://arxiv.org/abs/2403.11056)
 
 **Zhihao Liang**, Qi Zhang, Wenbo Hu, Lei Zhu, Ying Feng, Kui Jia
 
