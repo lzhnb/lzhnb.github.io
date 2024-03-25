@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Analytic-Splatting Demo - Drums</title>
+  <script type="text/javascript" src="js/util.js"></script>
+  <script type="text/javascript" src="enable-threads.js"></script>
+
+  <script type="importmap">
+    {
+        "imports": {
+            "three": "./lib/three.module.js",
+            "gaussian-splats-3d": "./lib/gaussian-splats-3d.module.js"
+        }
+    }
+  </script>
+  <style>
+
+    body {
+      background-color: #ffffff;
+      height: 100vh;
+      margin: 0px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <script type="module">
+    import * as GaussianSplats3D from 'gaussian-splats-3d';
+    import * as THREE from 'three';
+    const viewer = new GaussianSplats3D.Viewer({
+      'cameraUp': [0, 0, 1],
+      'initialCameraPosition': [0, -4, 2],
+      'initialCameraLookAt': [0, 0, 0],
+      'halfPrecisionCovariancesOnGPU': true
+    });
+    
+    let path = 'https://huggingface.co/datasets/lzhnb/analytic-splatting/resolve/main/drums.ksplat'
+    viewer.loadFile(path)
+    .then(() => {
+        viewer.start();
+    });
+  </script>
+</body>
+
+</html>
