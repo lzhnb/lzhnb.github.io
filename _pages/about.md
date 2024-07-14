@@ -17,7 +17,7 @@ redirect_from:
 
 <span class="anchor" id="about-me"></span>
 
-I am currently a Ph.D. at [South China University of Techonology (SCUT)](https://www.scut.edu.cn/en/), advised by [Prof. Kui Jia](http://kuijia.site/). I received my bachelor degree from the same university (i.e. SCUT) in 2020, and expect to obtain my Ph.D. degree in 2025. I am currently an intern at [Tencent AI Lab](https://ai.tencent.com/ailab/zh/index).
+I am currently a Ph.D. at [South China University of Technology (SCUT)](https://www.scut.edu.cn/en/), advised by [Prof. Kui Jia](http://kuijia.site/). I received my bachelor degree from the same university (i.e. SCUT) in 2020, and expect to obtain my Ph.D. degree in 2025. I am currently an intern at [Tencent AI Lab](https://ai.tencent.com/ailab/zh/index).
 
 I mainly focus on **3D Computer Vision**. My current research interests include Computer Graphics, 3D Semantic Learning and Reconstruction. Recently, I am working on Multi-View Reconstruction.
 
@@ -28,7 +28,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 # 📝 Publications
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/analytic-splatting.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2024</div><img src="images/analytic-splatting.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration](https://arxiv.org/abs/2403.11056)
@@ -40,7 +40,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 </div>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/3DGen-survey.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2024</div><img src="images/3DGen-survey.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [Advances in 3D Generation: A Survey](https://arxiv.org/abs/2401.17807)
@@ -128,6 +128,6 @@ Zhibo Fan, Jin-Gang Yu, **Zhihao Liang**, Jiarong Ou, Changxin Gao, Gui-Song Xia
 
 
 # 📖 Educations
-- *2021.09 - Now*, Ph.D., South China University of Technology, Guangzhou.
+- *2021.09 - Present*, Ph.D., South China University of Technology, Guangzhou.
 - *2020.09 - 2021.04*, Master, South China University of Technology, Guangzhou.
 - *2016.09 - 2020.06*, Undergraduate, South China University of Technology, Guangzhou.
