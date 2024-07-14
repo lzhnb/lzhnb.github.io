@@ -40,7 +40,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 </div>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2024</div><img src="images/3DGen-survey.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/3DGen-survey.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [Advances in 3D Generation: A Survey](https://arxiv.org/abs/2401.17807)
@@ -52,7 +52,7 @@ Xiaoyu Li, Qi Zhang, Di Kang, Weihao Cheng, Yiming Gao, Jingbo Zhang, **Zhihao L
 </div>
 </div>
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/sur2f.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2024</div><img src="images/sur2f.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [Sur2f: A Hybrid Representation for High-Quality and Efficient Surface Reconstruction from Multi-view Images](https://arxiv.org/abs/2401.03704)
