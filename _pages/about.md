@@ -28,7 +28,7 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 # 📝 Publications
 
-<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2024</div><img src="images/analytic-splatting.png" alt="sym" width="100%"></div></div>
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2024 (Oral)</div><img src="images/analytic-splatting.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
 [Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration](https://arxiv.org/abs/2403.11056)
