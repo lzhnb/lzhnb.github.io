@@ -40,6 +40,18 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 </div>
 </div>
 
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Arxiv 2024</div><img src="images/GS-ID.png" alt="sym" width="100%"></div></div>
+<div class="paper-box-text" markdown="1">
+
+[GS-ID: Illumination Decomposition on Gaussian Splatting via Diffusion Prior and Parametric Light Source Optimization](https://arxiv.org/abs/2408.08524)
+
+Kang Du, **Zhihao Liang**, Zeyu Wang
+
+[**Project**](https://kangdu.top/gsid/) | [**Code**](https://github.com/dukang/GS-ID.)
+- We present GS-ID, a novel framework for illumination decomposition on Gaussian Splatting, achieving photorealistic novel view synthesis and intuitive light editing. In this work, we first introduce intrinsic diffusion priors to estimate the attributes for physically based rendering. Then we divide the illumination into environmental and direct components for joint optimization. Last, we employ deferred rendering to reduce the computational load. Our framework uses a learnable environment map and Spherical Gaussians (SGs) to represent light sources parametrically, therefore enabling controllable and photorealistic relighting on Gaussian Splatting.
+</div>
+</div>
+
 <div class="paper-box"><div class="paper-box-image"><div><div class="badge">arXiv 2024</div><img src="images/3DGen-survey.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
