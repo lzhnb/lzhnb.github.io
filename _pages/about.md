@@ -28,6 +28,30 @@ I mainly focus on **3D Computer Vision**. My current research interests include 
 
 # 📝 Publications
 
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Arxiv 2024</div><img src="images/LetsTalk.png" alt="sym" width="100%"></div></div>
+<div class="paper-box-text" markdown="1">
+
+[LetsTalk: Latent Diffusion Transformer for Talking Video Synthesis](https://arxiv.org/abs/2411.07478)
+
+Haojie Zhang, **Zhihao Liang**, Ruibo Fu, Zhengqi Wen, Xuefei Liu, Chenxing Li, Jianhua Tao, Yaling Liang
+
+[**Project**](https://arxiv.org/abs/2411.07478)
+- Portrait image animation using audio has rapidly advanced, enabling the creation of increasingly realistic and expressive animated faces. The challenges of this multimodality-guided video generation task involve fusing various modalities while ensuring consistency in timing and portrait. We further seek to produce vivid talking heads. To address these challenges, we present LetsTalk (LatEnt Diffusion TranSformer for Talking Video Synthesis), a diffusion transformer that incorporates modular temporal and spatial attention mechanisms to merge multimodality and enhance spatial-temporal consistency. To handle multimodal conditions, we first summarize three fusion schemes, ranging from shallow to deep fusion compactness, and thoroughly explore their impact and applicability. Then we propose a suitable solution according to the modality differences of image, audio, and video generation. For portrait, we utilize a deep fusion scheme (Symbiotic Fusion) to ensure portrait consistency. For audio, we implement a shallow fusion scheme (Direct Fusion) to achieve audio-animation alignment while preserving diversity. Our extensive experiments demonstrate that our approach generates temporally coherent and realistic videos with enhanced diversity and liveliness.
+</div>
+</div>
+
+<div class="paper-box"><div class="paper-box-image"><div><div class="badge">Arxiv 2024</div><img src="images/GUS-IR.png" alt="sym" width="100%"></div></div>
+<div class="paper-box-text" markdown="1">
+
+[GUS-IR: Gaussian Splatting with Unified Shading for Inverse Rendering](https://arxiv.org/abs/2411.07478)
+
+**Zhihao Liang**, Qi Zhang, Wenbo Hu, Lei Zhu, Ying Feng, Kui Jia
+
+[**Project**](https://zhang-haojie.github.io/project-pages/letstalk.html) | [**Code**](https://github.com/zhang-haojie/letstalk)
+- Recovering the intrinsic physical attributes of a scene from images, generally termed as the inverse rendering problem, has been a central and challenging task in computer vision and computer graphics. In this paper, we present GUS-IR, a novel framework designed to address the inverse rendering problem for complicated scenes featuring rough and glossy surfaces. This paper starts by analyzing and comparing two prominent shading techniques popularly used for inverse rendering, forward shading and deferred shading, effectiveness in handling complex materials. More importantly, we propose a unified shading solution that combines the advantages of both techniques for better decomposition. In addition, we analyze the normal modeling in 3D Gaussian Splatting (3DGS) and utilize the shortest axis as normal for each particle in GUS-IR, along with a depth-related regularization, resulting in improved geometric representation and better shape reconstruction. Furthermore, we enhance the probe-based baking scheme proposed by GS-IR to achieve more accurate ambient occlusion modeling to better handle indirect illumination. Extensive experiments have demonstrated the superior performance of GUS-IR in achieving precise intrinsic decomposition and geometric representation, supporting many downstream tasks (such as relighting, retouching) in computer vision, graphics, and extended reality.
+</div>
+</div>
+
 <div class="paper-box"><div class="paper-box-image"><div><div class="badge">ECCV 2024 (Oral)</div><img src="images/analytic-splatting.png" alt="sym" width="100%"></div></div>
 <div class="paper-box-text" markdown="1">
 
